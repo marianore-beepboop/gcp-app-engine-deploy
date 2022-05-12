@@ -1,0 +1,17 @@
+# Use this config file to set the App Engine app's settings. More info at:
+# https://cloud.google.com/appengine/docs/standard/python3/config/appref
+service: default
+runtime: python39
+
+handlers:
+- url: /
+  static_files: app_files/index.html
+  upload: app_files/index.html
+
+- url: /
+  static_dir: app_files
+
+- url: /.*
+  secure: always
+  redirect_http_response_code: 301
+  script: auto
